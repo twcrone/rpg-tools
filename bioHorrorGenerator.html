@@ -1,18 +1,16 @@
 <html>
 <body>
 <script>
-var mutantTypes = ['Mutant Animal', 'Spliced Animal', 'Xenomorph'];
-
-document.write("<b>Mutant Types</b>");
-document.write("<table>");
-
-var count = mutantTypes.length;
-
-for(var i = 0; i < count; ++i) {
-  document.write("<tr><td>" + mutantTypes[i] + "</td></tr>");
+function pickOne(list) {
+  var count = list.length;
+  var index = Math.floor(Math.random() * count);
+  return list[index];
 }
 
-document.write("</table>");
+var MUTANT_TYPES = ['Mutant Animal', 'Spliced Animal', 'Xenomorph'];
+var mutantType = pickOne(MUTANT_TYPES);
+
+document.write("<b>Mutant Type:</b> " + mutantType);
 
 </script>
 </body>
