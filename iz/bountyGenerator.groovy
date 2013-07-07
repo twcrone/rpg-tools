@@ -12,7 +12,8 @@ class Tests extends GroovyTestCase {
 		bounty.person = new BountyAttribute("Person", 100)
 		bounty.crime = new BountyAttribute('Crime', 200)
 		bounty.location = new BountyAttribute('Location', 300)
-		assert bounty.amount == 600
+		bounty.notoriety = 2
+		assert bounty.amount == 1200
 	}
 
 	void test_main() {
@@ -96,13 +97,36 @@ class Bounty {
 		'Innocent', 'Guilty', 'Guilty'
 	]
 
+	static final NOTORIETY =
+	[
+		1,1,1,1,1,2,2,2,3,3,4,5,5,5,5,5,5,5,5,6,6,6,6,7,7,7,7,7,7,7,8,8,8,9,9,10
+	]
+
 	def person = chooseOne(PERSON)
 	def crime =  chooseOne(CRIME)
 	def location = chooseOne(LOCATION)
 	def trueDisposition = chooseOne(TRUE_DISPOSITION)
+	def notoriety = rollNotoriety()
+
+	def rollNotoriety() {
+		int roll = rollD20()
+		int total = roll
+		while(roll == 20) {
+			roll = rollD20()
+			total += roll
+		}
+		def multiplier = total > 35 ? 10 : NOTORIETY[total]
+		return multiplier
+	}
+
+	def rollD20() {
+		int roll = new Random().nextInt(20) + 1
+		return roll
+	}
 
 	int getAmount() {
 		int amount = person.credits + crime.credits + location.credits
+		amount *= notoriety
  		return amount
 	}
 
@@ -120,6 +144,7 @@ Person           = $person
 Crime            = $crime 
 Location         = $location
 True Disposition = $trueDisposition
+Notoriety        = x$notoriety 
 
 Amount = $amount
 """
