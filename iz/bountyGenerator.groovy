@@ -11,7 +11,13 @@ class Tests extends GroovyTestCase {
 		def bounty = new Bounty()
 		bounty.person = new BountyAttribute("Person", 100)
 		bounty.crime = new BountyAttribute('Crime', 200)
-		assert bounty.amount == 300
+		bounty.location = new BountyAttribute('Location', 300)
+		assert bounty.amount == 600
+	}
+
+	void test_main() {
+		def bounty = new Bounty()
+		println bounty		
 	}
 }
 
@@ -68,12 +74,29 @@ class Bounty {
 					new BountyAttribute('Extortion', 4000)
 	]
 
+	static final LOCATION =
+	[
+					new BountyAttribute('The O’Hare Military Sector', 600),
+					new BountyAttribute('Korea Town', 200),
+					new BountyAttribute('The Gold Coast', 500),
+					new BountyAttribute('Gary Hell Zone', 1250),
+					new BountyAttribute('Coffin City', 1000),
+					new BountyAttribute('Ukranian Village', 350),
+					new BountyAttribute('The Loop', 300),
+					new BountyAttribute("Downer's Groovy", 200),
+					new BountyAttribute("Sim City", 350),
+					new BountyAttribute('Chinatown', 200),
+					new BountyAttribute('Yorktown Shopping Center', 400),
+					new BountyAttribute('Naperville', 250)
+	]
+
 	def person = chooseOne(PERSON)
 	def crime =  chooseOne(CRIME)
+	def location = chooseOne(LOCATION)
 
 	int getAmount() {
-		int amount = person.credits + crime.credits
-		return amount
+		int amount = person.credits + crime.credits + location.credits
+ 		return amount
 	}
 
 	def chooseOne(attrs) {
@@ -86,13 +109,11 @@ class Bounty {
 		def s = """
 Bounty
 ---------------------
-Person = $person
-Crime  = $crime 
+Person   = $person
+Crime    = $crime 
+Location = $location
 
 Amount = $amount
-		"""
+"""
 	}
 }
-
-def bounty = new Bounty()
-println bounty
