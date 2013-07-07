@@ -90,9 +90,16 @@ class Bounty {
 					new BountyAttribute('Naperville', 250)
 	]
 
+	static final TRUE_DISPOSITION =
+	[
+		'Guilty', 'Complicit', 'Innocent', 'Guilty', 'Complicit', 
+		'Innocent', 'Guilty', 'Guilty'
+	]
+
 	def person = chooseOne(PERSON)
 	def crime =  chooseOne(CRIME)
 	def location = chooseOne(LOCATION)
+	def trueDisposition = chooseOne(TRUE_DISPOSITION)
 
 	int getAmount() {
 		int amount = person.credits + crime.credits + location.credits
@@ -109,9 +116,10 @@ class Bounty {
 		def s = """
 Bounty
 ---------------------
-Person   = $person
-Crime    = $crime 
-Location = $location
+Person           = $person
+Crime            = $crime 
+Location         = $location
+True Disposition = $trueDisposition
 
 Amount = $amount
 """
