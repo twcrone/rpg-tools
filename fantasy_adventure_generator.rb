@@ -23,7 +23,6 @@ LOCATIONS = [
 	'Village',
 	'Town',
 	'City',
-	'Capitol',
 	'Forest',
 	'Cave',
 	'Ruins',
@@ -31,7 +30,8 @@ LOCATIONS = [
 	'Tower',
 	'Swamp',
 	'Castle',
-	'Fort'
+	'Fort',
+	'Dungeon'
 ]
 
 def pick_one(list)
