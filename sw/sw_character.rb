@@ -1,14 +1,5 @@
 require "yaml"
 
-class Trait
-	attr_accessor :name, :type, :description
-	def initialize()
-		@name = 'Hindrance'
-		@type = 'Major'
-		@description = 'Description'
-	end
-end
-
 class SavageAttributes
 	attr_accessor :agility, :smarts, :spirit, :strength, :vigor
 	def initialize()
@@ -31,14 +22,26 @@ class SecondarySavageAttributes
 	end
 end
 
+class Trait
+	attr_accessor :name, :type, :description
+	def initialize()
+		@name = 'Hindrance'
+		@type = 'Major'
+		@description = 'Description'
+	end
+end
+
 class SavageCharacter
-	attr_accessor :name, :description, :attributes, :secondary_attributes, :hindrances
+	attr_accessor :name, :description, :attributes, :secondary_attributes, :hindrances,
+	:edges
+
 	def initialize(name)
 		@name = name
 		@description = 'Savage Character'
 		@attributes = SavageAttributes.new()
 		@secondary_attributes = SecondarySavageAttributes.new()
-		@hindrances = Array.new()
+		@hindrances = []
+		@edges = []
 		@hindrances.push Trait.new()
 	end
 end
@@ -200,22 +203,23 @@ file.puts <<-eos
 
 				<h3>Edges</h3>
 				<table class='attribute-row'>
+eos
+
+pal.edges.each do | edge |
+	file.puts <<-eos
 					<tr>
 						<td class='edge-cell'>
-							Chromed
+							#{edge.name}
 						</td>
 						<td class='edge-description-cell'>
-							40,000 credits for augments only
+							#{edge.description}
 						</td>
 					</tr>
-					<tr>
-						<td class='edge-cell'>
-							Martial artist
-						</td>
-						<td class='edge-description-cell'>
-							Unarmed damage Str + d4
-						</td>
-					</tr>
+	eos
+
+end
+
+file.puts <<-eos
 				</table>
 
 			</td>

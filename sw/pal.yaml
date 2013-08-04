@@ -26,3 +26,12 @@ hindrances:
   name: Stubborn
   type: Minor
   description: Must get his way.
+edges:
+- !ruby/object:Trait
+  name: Chromed
+  type: Major  
+  description: 40k credits for augments only.
+- !ruby/object:Trait
+  name: Martial artist
+  type: Major  
+  description: Unarmed damage Str + d4.
