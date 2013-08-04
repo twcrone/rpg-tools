@@ -1,8 +1,15 @@
 --- !ruby/object:SavageCharacter
-agility: d6
-description: Human Street Ronin
 name: Pal
-smarts: d4
-spirit: d6
-strength: d10
-vigor: d8
+description: Human Street Ronin
+attributes: !ruby/object:SavageAttributes
+  agility: d6
+  smarts: d4
+  spirit: d6
+  strength: d10
+  vigor: d6
+secondary_attributes: !ruby/object:SecondarySavageAttributes
+  charisma: -2
+  pace: 6
+  parry: 6
+  toughness: 9 (3)
+  rank: Novice (3)

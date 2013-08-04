@@ -1,10 +1,8 @@
 require "yaml"
 
-class SavageCharacter
-	attr_accessor :name, :description, :agility, :smarts, :spirit, :strength, :vigor
-	def initialize(name)
-		@name = name
-		@description = 'Savage Character'
+class SavageAttributes
+	attr_accessor :agility, :smarts, :spirit, :strength, :vigor
+	def initialize()
 		@agility = 'd4'
 		@smarts = 'd4'
 		@spirit = 'd4'
@@ -13,8 +11,32 @@ class SavageCharacter
 	end
 end
 
+class SecondarySavageAttributes
+	attr_accessor :charisma, :pace, :parry, :toughness, :rank
+	def initialize()
+		@charisma = 0
+		@pace = 6
+		@parry = 6
+		@toughness = "5"
+		@rank = "Novice (3)"
+	end
+end
+
+class SavageCharacter
+	attr_accessor :name, :description, :attributes, :secondary_attributes
+	def initialize(name)
+		@name = name
+		@description = 'Savage Character'
+		@attributes = SavageAttributes.new()
+		@secondary_attributes = SecondarySavageAttributes.new()
+	end
+end
+
+#pal = SavageCharacter.new('Pal')
+#YAML::dump("#{pal.name}.yaml")
 pal = YAML::load_file('pal.yaml')
-puts pal
+attrs = pal.attributes
+
 file = File.new("#{pal.name}.html", 'w')
 
 file.puts <<-eos
@@ -91,23 +113,23 @@ body {
 				<table class='attribute-row'>
 					<tr>
 						<td class='attribute-cell'>Agility</td>
-						<td class='attribute-value-cell'>#{pal.agility}</td>
+						<td class='attribute-value-cell'>#{attrs.agility}</td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Smarts</td>
-						<td class='attribute-value-cell'>#{pal.smarts}</td>
+						<td class='attribute-value-cell'>#{attrs.smarts}</td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Spirit</td>
-						<td class='attribute-value-cell'>#{pal.spirit}</td>
+						<td class='attribute-value-cell'>#{attrs.spirit}</td>
 					<tr>
 					<tr class='attribute-row'>
 						<td class='attribute-cell'>Strength</td>
-						<td class='attribute-value-cell'>#{pal.strength}</td>
+						<td class='attribute-value-cell'>#{attrs.strength}</td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Vigor</td>
-						<td class='attribute-value-cell'>#{pal.vigor}</td>
+						<td class='attribute-value-cell'>#{attrs.vigor}</td>
 					</tr>
 				</table>
 
