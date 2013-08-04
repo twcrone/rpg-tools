@@ -64,7 +64,7 @@ YAML::dump(pal)
 file = File.new("#{pal.name}.html", 'w')
 
 file.puts <<-eos
-<!DOCTYPE html>"
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -319,6 +319,7 @@ file.puts <<-eos
 </body>
 </html>
 eos
+
 file.close
 system "open #{file.path}"
 puts YAML::dump(pal)
