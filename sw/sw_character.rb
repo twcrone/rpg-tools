@@ -75,9 +75,8 @@ class SavageCharacter
 	end
 end
 
-#pal = SavageCharacter.new('Pal')
-#YAML::dump("#{pal.name}.yaml")
-pal = YAML::load_file('pal.yaml')
+name = ARGV[0]
+pal = YAML::load_file("#{name}.yaml")
 attrs = pal.attributes
 
 YAML::dump(pal)
