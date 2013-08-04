@@ -31,9 +31,17 @@ class Trait
 	end
 end
 
+class Skill
+	attr_accessor :name, :score
+	def initialize()
+		@name = 'Skill'
+		@score = 'd4'
+	end
+end
+
 class SavageCharacter
 	attr_accessor :name, :description, :attributes, :secondary_attributes, :hindrances,
-	:edges
+	:edges, :skills
 
 	def initialize(name)
 		@name = name
@@ -42,7 +50,7 @@ class SavageCharacter
 		@secondary_attributes = SecondarySavageAttributes.new()
 		@hindrances = []
 		@edges = []
-		@hindrances.push Trait.new()
+		@skills = []
 	end
 end
 
@@ -228,110 +236,23 @@ file.puts <<-eos
 
 				<h3>Skills</h3>
 				<table class='attribute-row'>
+eos
+
+pal.skills.each do | skill |
+	file.puts <<-eos
 					<tr>
 						<td class='attribute-cell'>
-							Climbing
+							#{skill.name}
 						</td>
 						<td class='attribute-value-cell'>
-							d4
+							#{skill.score}
 						</td>
 					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Driving
-						</td>
-						<td class='attribute-value-cell'>
-							d4
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Fightinng
-						</td>
-						<td class='attribute-value-cell'>
-							d6
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Healing
-						</td>
-						<td class='attribute-value-cell'>
-							d4
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Intimidation
-						</td>
-						<td class='attribute-value-cell'>
-							d6
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Investigation
-						</td>
-						<td class='attribute-value-cell'>
-							d4
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Notice
-						</td>
-						<td class='attribute-value-cell'>
-							d4
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Shooting
-						</td>
-						<td class='attribute-value-cell'>
-							d4
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Stealth
-						</td>
-						<td class='attribute-value-cell'>
-							d4
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Streetwise
-						</td>
-						<td class='attribute-value-cell'>
-							d4
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Survival
-						</td>
-						<td class='attribute-value-cell'>
-							d4
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Swimming
-						</td>
-						<td class='attribute-value-cell'>
-							d4
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
-							Throwing
-						</td>
-						<td class='attribute-value-cell'>
-							d4
-						</td>
-					</tr>
+	eos
+
+end
+
+<<-eos					
 				</table>
 
 			</td>

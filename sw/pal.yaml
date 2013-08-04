@@ -35,3 +35,43 @@ edges:
   name: Martial artist
   type: Major  
   description: Unarmed damage Str + d4.
+skills:
+- !ruby/object:Skill
+  name: Climbing
+  score: d4
+- !ruby/object:Skill
+  name: Driving
+  score: d4
+- !ruby/object:Skill
+  name: Fighting
+  score: d6
+- !ruby/object:Skill
+  name: Healing
+  score: d4
+- !ruby/object:Skill
+  name: Intimidation
+  score: d6
+- !ruby/object:Skill
+  name: Investigation
+  score: d4
+- !ruby/object:Skill
+  name: Notice
+  score: d4
+- !ruby/object:Skill
+  name: Shooting
+  score: d4
+- !ruby/object:Skill
+  name: Stealth
+  score: d4
+- !ruby/object:Skill
+  name: Streetwise
+  score: d4
+- !ruby/object:Skill
+  name: Survival
+  score: d4
+- !ruby/object:Skill
+  name: Swimming
+  score: d4
+- !ruby/object:Skill
+  name: Throwing
+  score: d4
