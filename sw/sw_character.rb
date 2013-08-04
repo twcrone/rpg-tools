@@ -76,12 +76,12 @@ class SavageCharacter
 end
 
 name = ARGV[0]
-pal = YAML::load_file("#{name}.yaml")
-attrs = pal.attributes
+character = YAML::load_file("#{name}.yaml")
+attrs = character.attributes
 
-YAML::dump(pal)
+YAML::dump(character)
 
-file = File.new("#{pal.name}.html", 'w')
+file = File.new("#{character.name}.html", 'w')
 
 file.puts <<-eos
 <!DOCTYPE html>
@@ -161,8 +161,8 @@ body {
 </style>
 </head>
 <body>
-	<h1>#{pal.name}</h1>
-	<h2>#{pal.description}</h2>
+	<h1>#{character.name}</h1>
+	<h2>#{character.description}</h2>
 
 	<h3>Attributes</h3>
 	<table class='attribute-table'>
@@ -198,23 +198,23 @@ body {
 				<table class='attribute-row'>
 					<tr>
 						<td class='attribute-cell'>Charisma</td>
-						<td class='attribute-value-cell'>#{pal.secondary_attributes.charisma}</td>
+						<td class='attribute-value-cell'>#{character.secondary_attributes.charisma}</td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Pace</td>
-						<td class='attribute-value-cell'>#{pal.secondary_attributes.pace}</td>
+						<td class='attribute-value-cell'>#{character.secondary_attributes.pace}</td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Parry</td>
-						<td class='attribute-value-cell'>#{pal.secondary_attributes.parry}</td>
+						<td class='attribute-value-cell'>#{character.secondary_attributes.parry}</td>
 					<tr>
 					<tr class='attribute-row'>
 						<td class='attribute-cell'>Toughness</td>
-						<td class='attribute-value-cell'>#{pal.secondary_attributes.toughness}</td>
+						<td class='attribute-value-cell'>#{character.secondary_attributes.toughness}</td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Rank (XP)</td>
-						<td class='attribute-value-cell'>#{pal.secondary_attributes.rank}</td>
+						<td class='attribute-value-cell'>#{character.secondary_attributes.rank}</td>
 					</tr>
 				</table>
 
@@ -230,7 +230,7 @@ body {
 				<table class='attribute-row'>
 eos
 
-pal.hindrances.each do | hindrance |
+character.hindrances.each do | hindrance |
 	file.puts <<-eos
 					<tr>
 						<td>
@@ -248,7 +248,7 @@ file.puts <<-eos
 				<table class='attribute-row'>
 eos
 
-pal.edges.each do | edge |
+character.edges.each do | edge |
 	file.puts <<-eos
 					<tr>
 						<td class='edge-cell'>
@@ -273,7 +273,7 @@ file.puts <<-eos
 				<table class='attribute-row'>
 eos
 
-pal.skills.each do | skill |
+character.skills.each do | skill |
 	file.puts <<-eos
 					<tr>
 						<td class='attribute-cell'>
@@ -311,7 +311,7 @@ file.puts <<-eos
 		</tr>
 eos
 
-pal.augmentations.each do | augmentation |
+character.augmentations.each do | augmentation |
 	file.puts <<-eos
 		<tr>
 			<td class="augmentation-name-cell">
@@ -341,7 +341,7 @@ file.puts <<-eos
 				Total
 			</td>
 			<td class="augmentation-strain-cell">
-				#{pal.total_strain}
+				#{character.total_strain}
 			</td>
 		</tr>
 	</table>
@@ -352,4 +352,4 @@ eos
 
 file.close
 system "open #{file.path}"
-puts YAML::dump(pal)
+puts YAML::dump(character)
