@@ -252,7 +252,7 @@ pal.skills.each do | skill |
 
 end
 
-<<-eos					
+file.puts <<-eos					
 				</table>
 
 			</td>
