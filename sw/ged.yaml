@@ -1,0 +1,98 @@
+--- !ruby/object:SavageCharacter
+name: Ged
+description: Human 2.0 Peek
+attributes: !ruby/object:SavageAttributes
+  agility: d6
+  smarts: d10
+  spirit: d6
+  strength: d4
+  vigor: d6
+secondary_attributes: !ruby/object:SecondarySavageAttributes
+  charisma: 2
+  pace: 6
+  parry: 4
+  toughness: 5
+  rank: Novice (0)
+hindrances:
+- !ruby/object:Trait
+  name: Overconfident
+  type: Major  
+  description: There is nothing out there this hero cannot defeat.
+- !ruby/object:Trait
+  name: Arrogant
+  type: Major  
+  description: Always goes after the boss.
+- !ruby/object:Trait
+  name: Genetic Abnormality
+  type: Minor  
+  description: Costs double to raise Strength during character creation.
+edges:
+- !ruby/object:Trait
+  name: Arcane Background (Psionics)
+  type: Major  
+  description: Peek.
+- !ruby/object:Trait
+  name: Advancted Ability
+  type: Major  
+  description: Smarts starts at d6.
+- !ruby/object:Trait
+  name: Beautiful People
+  type: Major
+  description: Attractive Edge (+2 Charisma).
+- !ruby/object:Trait
+  name: Savant
+  type: Major
+  description: Gets Psionices skill at d6 to start.
+skills:
+- !ruby/object:Skill
+  name: Driving
+  score: d4
+- !ruby/object:Skill
+  name: Fighting
+  score: d4
+- !ruby/object:Skill
+  name: Healing
+  score: d4
+- !ruby/object:Skill
+  name: Intimidation
+  score: d4
+- !ruby/object:Skill
+  name: Investigation
+  score: d4
+- !ruby/object:Skill
+  name: Notice
+  score: d6
+- !ruby/object:Skill
+  name: Persuasion
+  score: d6
+- !ruby/object:Skill
+  name: Psionics
+  score: d10
+- !ruby/object:Skill
+  name: Shooting
+  score: d4
+- !ruby/object:Skill
+  name: Stealth
+  score: d4
+- !ruby/object:Skill
+  name: Swimming
+  score: d4
+powers:
+- !ruby/object:Power
+  name: Confusion
+  power_points: 1
+  range: Smarts x 2
+  duration: Instant
+  trapping: Invisible
+- !ruby/object:Power
+  name: Mind Reading
+  power_points: 3
+  range: Smarts
+  duration: 1
+  trapping: Invisible
+- !ruby/object:Power
+  name: Remote Sensing
+  power_points: 2/3+
+  range: Smarts x 2
+  duration: 1 minute (1/minute)
+  trapping: Invisible 

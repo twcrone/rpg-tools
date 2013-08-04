@@ -51,9 +51,22 @@ class Augmentation
 
 end
 
+class Power
+
+	attr_accessor :name, :power_points, :range, :duration, :trapping
+
+	def initialize()
+		@name = "Power"
+		@power_points = 0
+		@range = 'Smarts'
+		@duration = 'Instant'
+		@trapping = 'Invisible'
+	end
+end
+
 class SavageCharacter
 	attr_accessor :name, :description, :attributes, :secondary_attributes, :hindrances,
-	:edges, :skills, :augmentations
+	:edges, :skills, :augmentations, :powers
 
 	def initialize(name)
 		@name = name
@@ -64,6 +77,7 @@ class SavageCharacter
 		@edges = []
 		@skills = []
 		@augmentations = []
+		@powers = []
 	end
 
 	def total_strain()
@@ -293,7 +307,11 @@ file.puts <<-eos
 			</td>
 		</tr>	
 	</table>
+eos
 
+if character.augmentations != nil
+
+file.puts <<-eos	
 	<h3>Augmentations</h3>
 	<table style="width:100%">
 		<tr>
@@ -345,7 +363,52 @@ file.puts <<-eos
 			</td>
 		</tr>
 	</table>
+eos
+end
 
+if character.powers != nil
+
+file.puts <<-eos	
+	<h3>Powers</h3>
+	<table style="width:100%">
+		<tr>
+			<td class="augmentation-name-cell">
+			</td>
+			<td class="augmentation-level-cell table-header">
+				Cost
+			</td>
+			<td class="augmentation-effects-cell table-header">
+				Range
+			</td>
+			<td class="augmentation-strain-cell table-header">
+				Duration
+			</td>
+		</tr>
+eos
+
+character.powers.each do | power |
+	file.puts <<-eos
+		<tr>
+			<td class="augmentation-name-cell">
+				#{power.name}
+			</td>
+			<td class="augmentation-level-cell">
+				#{power.power_points}
+			</td>
+			<td class="augmentation-effects-cell">
+				#{power.range}
+			</td>
+			<td class="augmentation-strain-cell">
+				#{power.duration}
+			</td>
+		</tr>
+	eos
+
+end
+
+end
+
+<<-eos
 </body>
 </html>
 eos
