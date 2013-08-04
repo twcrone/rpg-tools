@@ -39,9 +39,21 @@ class Skill
 	end
 end
 
+class Augmentation
+	attr_accessor :name, :category, :effect, :strain
+
+	def initialize()
+		@name = "Augmentation"
+		@category = "Streetware"
+		@effect = "Effect"
+		@strain = 0
+	end
+
+end
+
 class SavageCharacter
 	attr_accessor :name, :description, :attributes, :secondary_attributes, :hindrances,
-	:edges, :skills
+	:edges, :skills, :augmentations
 
 	def initialize(name)
 		@name = name
@@ -51,6 +63,15 @@ class SavageCharacter
 		@hindrances = []
 		@edges = []
 		@skills = []
+		@augmentations = []
+	end
+
+	def total_strain()
+		total = 0
+		augmentations.each do | augmentation |
+			total += augmentation.strain
+		end
+		return total
 	end
 end
 
@@ -289,34 +310,29 @@ file.puts <<-eos
 				Strain
 			</td>
 		</tr>
+eos
+
+pal.augmentations.each do | augmentation |
+	file.puts <<-eos
 		<tr>
 			<td class="augmentation-name-cell">
-				Reflex Enhancers
+				#{augmentation.name}
 			</td>
 			<td class="augmentation-level-cell">
-				Streetware
+				#{augmentation.category}
 			</td>
 			<td class="augmentation-effects-cell">
-				+1 Parry
+				#{augmentation.effect}
 			</td>
 			<td class="augmentation-strain-cell">
-				2
+				#{augmentation.strain}
 			</td>
 		</tr>
-		<tr>
-			<td class="augmentation-name-cell">
-				Muscle Augmentation
-			</td>
-			<td class="augmentation-level-cell">
-				Streetware
-			</td>
-			<td class="augmentation-effects-cell">
-				Increase Strength one step
-			</td>
-			<td class="augmentation-strain-cell">
-				2
-			</td>
-		</tr>
+	eos
+
+end
+
+file.puts <<-eos
 		<tr>
 			<td class="augmentation-name-cell">
 			</td>
@@ -326,7 +342,7 @@ file.puts <<-eos
 				Total
 			</td>
 			<td class="augmentation-strain-cell">
-				4
+				#{pal.total_strain}
 			</td>
 		</tr>
 	</table>

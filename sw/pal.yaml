@@ -75,3 +75,14 @@ skills:
 - !ruby/object:Skill
   name: Throwing
   score: d4
+augmentations:
+- !ruby/object:Augmentation
+  name: Reflex Enhancers
+  category: Streetware
+  effect: +1 Parry
+  strain: 2
+- !ruby/object:Augmentation
+  name: Muscle Augmentation
+  category: Streetware
+  effect: Increase Strength one step
+  strain: 2
