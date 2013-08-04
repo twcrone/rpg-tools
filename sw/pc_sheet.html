@@ -1,190 +1,252 @@
+<!DOCTYPE html>
 <html>
+<head>
+<style>
+body {
+	font-family:'courier';
+}
+.attribute-panel {
+	width: 50%;
+	vertical-align: top;
+}
+.attribute-cell {
+	width: 40%;
+}
+.attribute-value-cell {
+	width: 60%;
+	font-weight: bold;
+}
+.edge-cell {
+	width: 40%;
+	font-weight: bold;
+	vertical-align: top;
+}
+.edge-description-cell {
+	width: 60%;
+}
+.attribute-row {
+	width: 100%;
+}
+.attribute-table {
+	width: 100%;
+}
+</style>
+</head>
 <body>
-<font face="arial">
-<h1>Pal</h1>
-<table border='1'>
-	<tr>
-		<td>Agility</td><th>d6<t/th><td>Charisma</td><th>-2<t/th>
-	</tr>
-	<tr>
-		<td>Smarts</td><th>d4<t/th><td>Pace</td><th>6<t/th>
-	</tr>
-	<tr>
-		<td>Strength</td><th>d10<t/th><td>Parry</td><th>6<t/th>
-	</tr>
-	<tr>
-		<td>Spirit</td><th>d6<t/th><td>Toughness</td><th>9 (3)<t/th>
-	</tr>
-	<tr>
-		<td>Vigor</td><th>d8<t/th><td>Rank</td><th>Novice (3)<t/th>
-	</tr>
-</table>
-<table>
-	<tr>
-		<td valign='top'>
-			<table>
-				<tr>
-					<td>Skills</td><td></td>
-				</tr>
-				<tr>
-					<td>Climbing</td><td><b>d4</b></td>
-				</tr>
-				<tr>
-					<td>Climbing</td><td>d4</td>
-				</tr>
-				<tr>
-					<td>Climbing</td><td>d4</td>
-				</tr>
-				<tr>
-					<td>Climbing</td><td>d4</td>
-				</tr>
-				<tr>
-					<td>Climbing</td><td>d4</td>
-				</tr>
-				<tr>
-					<td>Climbing</td><td>d4</td>
-				</tr>
-				<tr>
-					<td>Climbing</td><td>d4</td>
-				</tr>
-				<tr>
-					<td>Climbing</td><td>d4</td>
-				</tr>
-				<tr>
-					<td>Climbing</td><td>d4</td>
-				</tr>
-				<tr>
-					<td>Climbing</td><td>d4</td>
-				</tr>
-			</table>
-		</td>
-		<td valign='top'>
-			<table>
-				<tr>
-					<td>Hindrances</td>
-				</tr>
-				<tr>
-					<td><b>Heroic</b></td>
-				</tr>
-				<tr>
-					<td><b>Ugly</b></td>
-				</tr>
-				<tr>
-					<td><b>Stubborn</b></td>
-				</tr>
-			</table>
-			<br />
-			<table>
-				<tr>
-					<td>Edges</td><td></td>
-				</tr>
-				<tr>
-					<td><b>Chromed</b></td><td></td>
-				</tr>
-				<tr>
-					<td><b>Martial arts</b></td><td>Unarmed damage Str+d4</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-</table>	
-<br />
-<br />
-Skills:
-Climbing,
-Driving,
-Fighting <b>d6</b>,
-Hacking,
-Healing,
-Intimidation, <b>d6</b>
-Investigation,
-Notice,
-Shooting,
-Stealth,
-Streetwise,
-Survival,
-Swimming,
-Throwing
-<br />
-<br />
-Funds: <b>1100 cr</b>
-<br />
-<br />
-Cyberware:<br />
-<b>Reflex Enhancers (Streetware)</b> +1 Parry
-<br />
-<b>Muscle Augmentation (Streetware)</b> Increase Str a step (d10)
-<br />
-<br />
-Gear:
-<br />
-<b>Harley Davidson 'Iron Horse' Cruiser</b>
-<br /> 
-<b>Urban Punk Combat Jacket</b> (+3 armor torso and arms)
-<br /> 
-<b>Basic medkit</b>
-<br /> 
-<b>Computer tablet</b>
-</b>
-<br />
-<br />
-<table border='1'>
-	<tr>
-		<td>Weapon</td>
-		<td>Range</td>
-		<td>ROF</td>
-		<td>Damage</td>
-		<td>AP</td>
-		<td>WT</td>
-		<td>Notes</td>
-	</tr>
-	<tr>
-		<th>Katana</th>
-		<td></td>
-		<td></td>
-		<td>Str + d6 + 2</td>
-		<td>2</td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>Duke McCoy Combat Knife</th>
-		<td></td>
-		<td></td>
-		<td>Str+d6+1</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>AGA Thunderbolt</th>
-		<td>20/40/80</td>
-		<td>1</td>
-		<td>2d8+4</td>
-		<td></td>
-		<td></td>
-		<td>Special frangible ammo (42 rds)</td>
-	</tr>
-	<tr>
-		<th>HT-9 Holdout</th>
-		<td>12/24/48</td>
-		<td>1</td>
-		<td>2d6</td>
-		<td>1</td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>9mm Street Urchins (2)</th>
-		<td>12/24/48</td>
-		<td>1</td>
-		<td>2d6</td>
-		<td></td>
-		<td></td>
-		<td>16 rd magazins</td>
-	</tr>
-</table>
+	<h1>Pal</h1>
+	<h2>Human Street Ronin</h2>
 
-</font>
+	<h3>Attributes</h3>
+	<table class='attribute-table'>
+		<tr>
+			<td class='attribute-panel'>
+
+				<table class='attribute-row'>
+					<tr>
+						<td class='attribute-cell'>Agility</td>
+						<td class='attribute-value-cell'>d6</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>Smarts</td>
+						<td class='attribute-value-cell'>d4</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>Spirit</td>
+						<td class='attribute-value-cell'>d6</td>
+					<tr>
+					<tr class='attribute-row'>
+						<td class='attribute-cell'>Strength</td>
+						<td class='attribute-value-cell'>d10</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>Vigor</td>
+						<td class='attribute-value-cell'>d8</td>
+					</tr>
+				</table>
+
+			</td>
+			<td class='attribute-panel'>
+
+				<table class='attribute-row'>
+					<tr>
+						<td class='attribute-cell'>Charisma</td>
+						<td class='attribute-value-cell'>-2</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>Pace</td>
+						<td class='attribute-value-cell'>6</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>Parry</td>
+						<td class='attribute-value-cell'>6</td>
+					<tr>
+					<tr class='attribute-row'>
+						<td class='attribute-cell'>Toughness</td>
+						<td class='attribute-value-cell'>9 (3)</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>Rank</td>
+						<td class='attribute-value-cell'>Novice</td>
+					</tr>
+				</table>
+
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class='attribute-panel'>
+				<h3>Hindrances</h3>
+				<table class='attribute-row'>
+					<tr>
+						<td>
+							Heroic
+						</td>
+					<tr>
+						<td>
+							Ugly
+						</td>
+					<tr>
+						<td>
+							Stubborn
+						</td>
+					</tr>
+				</table>
+				<h3>Edges</h3>
+				<table class='attribute-row'>
+					<tr>
+						<td class='edge-cell'>
+							Chromed
+						</td>
+						<td class='edge-description-cell'>
+							40,000 credits for augments only
+						</td>
+					</tr>
+					<tr>
+						<td class='edge-cell'>
+							Martial artist
+						</td>
+						<td class='edge-description-cell'>
+							Unarmed damage Str + d4
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td class='attribute-panel'>
+
+				<h3>Skills</h3>
+				<table class='attribute-row'>
+					<tr>
+						<td class='attribute-cell'>
+							Climbing
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Driving
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Fightinng
+						</td>
+						<td class='attribute-value-cell'>
+							d6
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Healing
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Intimidation
+						</td>
+						<td class='attribute-value-cell'>
+							d6
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Investigation
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Notice
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Shooting
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Stealth
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Streetwise
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Survival
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Swimming
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+					<tr>
+						<td class='attribute-cell'>
+							Throwing
+						</td>
+						<td class='attribute-value-cell'>
+							d4
+						</td>
+					</tr>
+				</table>
+
+			</td>
+		</tr>	
+	</table>
+
 </body>
 </html>
