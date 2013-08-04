@@ -1,5 +1,14 @@
 require "yaml"
 
+class Trait
+	attr_accessor :name, :type, :description
+	def initialize()
+		@name = 'Hindrance'
+		@type = 'Major'
+		@description = 'Description'
+	end
+end
+
 class SavageAttributes
 	attr_accessor :agility, :smarts, :spirit, :strength, :vigor
 	def initialize()
@@ -23,12 +32,14 @@ class SecondarySavageAttributes
 end
 
 class SavageCharacter
-	attr_accessor :name, :description, :attributes, :secondary_attributes
+	attr_accessor :name, :description, :attributes, :secondary_attributes, :hindrances
 	def initialize(name)
 		@name = name
 		@description = 'Savage Character'
 		@attributes = SavageAttributes.new()
 		@secondary_attributes = SecondarySavageAttributes.new()
+		@hindrances = Array.new()
+		@hindrances.push Trait.new()
 	end
 end
 
@@ -36,6 +47,8 @@ end
 #YAML::dump("#{pal.name}.yaml")
 pal = YAML::load_file('pal.yaml')
 attrs = pal.attributes
+
+YAML::dump(pal)
 
 file = File.new("#{pal.name}.html", 'w')
 
@@ -139,23 +152,23 @@ body {
 				<table class='attribute-row'>
 					<tr>
 						<td class='attribute-cell'>Charisma</td>
-						<td class='attribute-value-cell'>-2</td>
+						<td class='attribute-value-cell'>#{pal.secondary_attributes.charisma}</td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Pace</td>
-						<td class='attribute-value-cell'>6</td>
+						<td class='attribute-value-cell'>#{pal.secondary_attributes.pace}</td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Parry</td>
-						<td class='attribute-value-cell'>6</td>
+						<td class='attribute-value-cell'>#{pal.secondary_attributes.parry}</td>
 					<tr>
 					<tr class='attribute-row'>
 						<td class='attribute-cell'>Toughness</td>
-						<td class='attribute-value-cell'>9 (3)</td>
+						<td class='attribute-value-cell'>#{pal.secondary_attributes.toughness}</td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Rank (XP)</td>
-						<td class='attribute-value-cell'>Novice (3)</td>
+						<td class='attribute-value-cell'>#{pal.secondary_attributes.rank}</td>
 					</tr>
 				</table>
 
@@ -169,20 +182,22 @@ body {
 			<td class='attribute-panel'>
 				<h3>Hindrances</h3>
 				<table class='attribute-row'>
+eos
+
+pal.hindrances.each do | hindrance |
+	file.puts <<-eos
 					<tr>
 						<td>
-							Heroic
-						</td>
-					<tr>
-						<td>
-							Ugly
-						</td>
-					<tr>
-						<td>
-							Stubborn
+							#{hindrance.name}
 						</td>
 					</tr>
+	eos
+
+end
+
+file.puts <<-eos
 				</table>
+
 				<h3>Edges</h3>
 				<table class='attribute-row'>
 					<tr>

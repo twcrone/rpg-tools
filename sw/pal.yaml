@@ -13,3 +13,16 @@ secondary_attributes: !ruby/object:SecondarySavageAttributes
   parry: 6
   toughness: 9 (3)
   rank: Novice (3)
+hindrances:
+- !ruby/object:Trait
+  name: Heroic
+  type: Major  
+  description: Always tries to help those in need.
+- !ruby/object:Trait
+  name: Ugly
+  type: Minor  
+  description: -2 Charisma.
+- !ruby/object:Trait
+  name: Stubborn
+  type: Minor
+  description: Must get his way.
