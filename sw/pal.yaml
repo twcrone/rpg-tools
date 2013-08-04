@@ -1,0 +1,8 @@
+--- !ruby/object:SavageCharacter
+agility: d6
+description: Human Street Ronin
+name: Pal
+smarts: d4
+spirit: d6
+strength: d10
+vigor: d8
