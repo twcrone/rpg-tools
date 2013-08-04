@@ -82,6 +82,21 @@ body {
 	width: 60%;
 	font-weight: bold;
 }
+.d4 {
+	color: blue
+}
+.d6 {
+	color: green
+}
+.d8 {
+	color: yellow
+}
+.d10 {
+	color: orange
+}
+.d12 {
+	color: red
+}
 .edge-cell {
 	width: 40%;
 	font-weight: bold;
@@ -137,23 +152,23 @@ body {
 				<table class='attribute-row'>
 					<tr>
 						<td class='attribute-cell'>Agility</td>
-						<td class='attribute-value-cell'>#{attrs.agility}</td>
+						<td class='attribute-value-cell'><div class='#{attrs.agility}'>#{attrs.agility}</div></td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Smarts</td>
-						<td class='attribute-value-cell'>#{attrs.smarts}</td>
+						<td class='attribute-value-cell'><div class='#{attrs.smarts}'>#{attrs.smarts}</div></td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Spirit</td>
-						<td class='attribute-value-cell'>#{attrs.spirit}</td>
+						<td class='attribute-value-cell'><div class='#{attrs.spirit}'>#{attrs.spirit}</div></td>
 					<tr>
 					<tr class='attribute-row'>
 						<td class='attribute-cell'>Strength</td>
-						<td class='attribute-value-cell'>#{attrs.strength}</td>
+						<td class='attribute-value-cell'><div class='#{attrs.strength}'>#{attrs.strength}</div></td>
 					</tr>
 					<tr>
 						<td class='attribute-cell'>Vigor</td>
-						<td class='attribute-value-cell'>#{attrs.vigor}</td>
+						<td class='attribute-value-cell'><div class='#{attrs.vigor}'>#{attrs.vigor}</div></td>
 					</tr>
 				</table>
 
@@ -245,7 +260,7 @@ pal.skills.each do | skill |
 							#{skill.name}
 						</td>
 						<td class='attribute-value-cell'>
-							#{skill.score}
+							<div class='#{skill.score}'>#{skill.score}</div>
 						</td>
 					</tr>
 	eos

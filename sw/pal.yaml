@@ -6,7 +6,7 @@ attributes: !ruby/object:SavageAttributes
   smarts: d4
   spirit: d6
   strength: d10
-  vigor: d6
+  vigor: d8
 secondary_attributes: !ruby/object:SecondarySavageAttributes
   charisma: -2
   pace: 6
