@@ -81,6 +81,7 @@ powers:
   range: Smarts x 2
   duration: Instant
   trapping: Invisible
+  description: Smarts - 2 or opponent Shaken
 - !ruby/object:Power
   name: Mind Reading
   power_points: 3
@@ -92,4 +93,4 @@ powers:
   power_points: 2/3+
   range: Smarts x 2
   duration: 1 minute (1/minute)
-  trapping: Invisible 
+  trapping: Invisible

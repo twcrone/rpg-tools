@@ -433,7 +433,7 @@ character.powers.each do | power |
 			<td class="power-duration-cell">
 				#{power.duration}
 			</td>
-			<td class="power-description-cell table-header">
+			<td class="power-description-cell">
 				#{power.description}
 			</td>
 		</tr>
