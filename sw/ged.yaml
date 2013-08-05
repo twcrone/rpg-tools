@@ -54,11 +54,8 @@ skills:
   name: Healing
   score: d4
 - !ruby/object:Skill
-  name: Intimidation
-  score: d4
-- !ruby/object:Skill
   name: Investigation
-  score: d4
+  score: d6
 - !ruby/object:Skill
   name: Notice
   score: d6

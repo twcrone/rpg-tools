@@ -53,7 +53,7 @@ end
 
 class Power
 
-	attr_accessor :name, :power_points, :range, :duration, :trapping
+	attr_accessor :name, :power_points, :range, :duration, :trapping, :description
 
 	def initialize()
 		@name = "Power"
@@ -61,6 +61,7 @@ class Power
 		@range = 'Smarts'
 		@duration = 'Instant'
 		@trapping = 'Invisible'
+		@description = 'TBD'
 	end
 end
 
@@ -172,6 +173,34 @@ body {
 	text-align: right;
 	font-weight: bold;
 }
+.power-name-cell {
+	width: 20%;
+	vertical-align: top;
+	text-align: left;
+	font-weight: bold;
+}
+.power-points-cell {
+	width: 5%;
+	vertical-align: top;
+	text-align: center;
+}
+.power-range-cell {
+	width: 20%;
+	vertical-align: top;
+	text-align: center;
+}
+.power-duration-cell {
+	width: 10%;
+	vertical-align: center;
+	text-align: left;
+}
+.power-description-cell {
+	width: 45%;
+	vertical-align: top;
+	text-align: left;
+}
+
+
 </style>
 </head>
 <body>
@@ -372,16 +401,19 @@ file.puts <<-eos
 	<h3>Powers</h3>
 	<table style="width:100%">
 		<tr>
-			<td class="augmentation-name-cell">
+			<td class="power-name-cell">
 			</td>
-			<td class="augmentation-level-cell table-header">
-				Cost
+			<td class="power-points-cell table-header">
+				Points
 			</td>
-			<td class="augmentation-effects-cell table-header">
+			<td class="power-range-cell table-header">
 				Range
 			</td>
-			<td class="augmentation-strain-cell table-header">
+			<td class="power-duration-cell table-header">
 				Duration
+			</td>
+			<td class="power-description-cell table-header">
+				Description
 			</td>
 		</tr>
 eos
@@ -389,17 +421,20 @@ eos
 character.powers.each do | power |
 	file.puts <<-eos
 		<tr>
-			<td class="augmentation-name-cell">
+			<td class="power-name-cell">
 				#{power.name}
 			</td>
-			<td class="augmentation-level-cell">
+			<td class="power-points-cell">
 				#{power.power_points}
 			</td>
-			<td class="augmentation-effects-cell">
+			<td class="power-range-cell">
 				#{power.range}
 			</td>
-			<td class="augmentation-strain-cell">
+			<td class="power-duration-cell">
 				#{power.duration}
+			</td>
+			<td class="power-description-cell table-header">
+				#{power.description}
 			</td>
 		</tr>
 	eos

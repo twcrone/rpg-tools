@@ -72,6 +72,34 @@ body {
 	text-align: right;
 	font-weight: bold;
 }
+.power-name-cell {
+	width: 20%;
+	vertical-align: top;
+	text-align: left;
+	font-weight: bold;
+}
+.power-points-cell {
+	width: 5%;
+	vertical-align: top;
+	text-align: center;
+}
+.power-range-cell {
+	width: 20%;
+	vertical-align: top;
+	text-align: center;
+}
+.power-duration-cell {
+	width: 10%;
+	vertical-align: center;
+	text-align: left;
+}
+.power-description-cell {
+	width: 45%;
+	vertical-align: top;
+	text-align: left;
+}
+
+
 </style>
 </head>
 <body>
@@ -227,18 +255,10 @@ body {
 					</tr>
 					<tr>
 						<td class='attribute-cell'>
-							Intimidation
-						</td>
-						<td class='attribute-value-cell'>
-							<div class='d4'>d4</div>
-						</td>
-					</tr>
-					<tr>
-						<td class='attribute-cell'>
 							Investigation
 						</td>
 						<td class='attribute-value-cell'>
-							<div class='d4'>d4</div>
+							<div class='d6'>d6</div>
 						</td>
 					</tr>
 					<tr>
@@ -297,57 +317,69 @@ body {
 	<h3>Powers</h3>
 	<table style="width:100%">
 		<tr>
-			<td class="augmentation-name-cell">
+			<td class="power-name-cell">
 			</td>
-			<td class="augmentation-level-cell table-header">
-				Power Points
+			<td class="power-points-cell table-header">
+				Points
 			</td>
-			<td class="augmentation-effects-cell table-header">
+			<td class="power-range-cell table-header">
 				Range
 			</td>
-			<td class="augmentation-strain-cell table-header">
+			<td class="power-duration-cell table-header">
 				Duration
 			</td>
+			<td class="power-description-cell table-header">
+				Description
+			</td>
 		</tr>
 		<tr>
-			<td class="augmentation-name-cell">
+			<td class="power-name-cell">
 				Confusion
 			</td>
-			<td class="augmentation-level-cell">
+			<td class="power-points-cell">
 				1
 			</td>
-			<td class="augmentation-effects-cell">
+			<td class="power-range-cell">
 				Smarts x 2
 			</td>
-			<td class="augmentation-strain-cell">
+			<td class="power-duration-cell">
 				Instant
 			</td>
+			<td class="power-description-cell table-header">
+				
+			</td>
 		</tr>
 		<tr>
-			<td class="augmentation-name-cell">
+			<td class="power-name-cell">
 				Mind Reading
 			</td>
-			<td class="augmentation-level-cell">
+			<td class="power-points-cell">
 				3
 			</td>
-			<td class="augmentation-effects-cell">
+			<td class="power-range-cell">
 				Smarts
 			</td>
-			<td class="augmentation-strain-cell">
+			<td class="power-duration-cell">
 				1
+			</td>
+			<td class="power-description-cell table-header">
+				
 			</td>
 		</tr>
 		<tr>
-			<td class="augmentation-name-cell">
+			<td class="power-name-cell">
 				Remote Sensing
 			</td>
-			<td class="augmentation-level-cell">
+			<td class="power-points-cell">
 				2/3+
 			</td>
-			<td class="augmentation-effects-cell">
+			<td class="power-range-cell">
 				Smarts x 2
 			</td>
-			<td class="augmentation-strain-cell">
+			<td class="power-duration-cell">
 				1 minute (1/minute)
+			</td>
+			<td class="power-description-cell table-header">
+				
 			</td>
 		</tr>
