@@ -106,6 +106,9 @@ file.puts <<-eos
 body {
 	font-family:'courier';
 }
+h3 {
+	border-bottom: 1px dotted black;
+}
 .attribute-panel {
 	width: 50%;
 	vertical-align: top;
